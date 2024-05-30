@@ -34,10 +34,19 @@ function Login() {
         password: values.password
       })
       .then(res=>{
+         // Lưu token hoặc thông tin đăng nhập vào localStorage 
+         localStorage.setItem('token', values.token);
         navigate('/home')
       })
+      .catch((error) => {
+        // Xử lý lỗi khi đăng nhập không thành công
+        console.error('Lỗi đăng nhập:', error);
+        // Hiển thị thông báo lỗi cho người dùng
+        alert('Đăng nhập không thành công. Vui lòng kiểm tra lại email và mật khẩu.');
+      });
+    }else{
+      console.log('Submitted values:', values);
     }
-    console.log('Submitted values:', values);
   };
   
   
