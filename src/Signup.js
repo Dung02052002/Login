@@ -54,6 +54,9 @@ function Signup() {
       axios
         .post('http://localhost:8089/signup', values)
         .then((res) => {
+                // Lưu token hoặc thông tin đăng ký vào localStorage 
+        localStorage.setItem('token', res.data.token);
+      // Chuyển hướng đến trang login hoặc trang chủ
           navigate('/');
         })
         .catch((err) => {
